@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Testimonials{% endblock %}
+
+{% block content %}
+<h2>Customer Reviews</h2>
+<div class="slider-container">
+    <div class="slider">
+        {% for review in reviews %}
+        <div class="slide">
+            <p>"{{ review.review }}"</p>
+            <p>- {{ review.name }}</p>
+        </div>
+        {% endfor %}
+    </div>
+    <button class="prev" onclick="prevSlide()">&#10094;</button>
+    <button class="next" onclick="nextSlide()">&#10095;</button>
+</div>
+<script>
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+const totalSlides = slides.length;
+
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        slide.style.transform = `translateX(${(i - index) * 100}%)`;
+    });
+}
+
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    showSlide(currentSlide);
+}
+
+function prevSlide() {
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    showSlide(currentSlide);
+}
+
+// Auto swipe every 3 seconds
+setInterval(nextSlide, 3000);
+
+showSlide(currentSlide);
+</script>
+{% endblock %}

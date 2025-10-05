@@ -1,0 +1,23 @@
+# Expense Tracker Project TODO
+
+- [x] Create clean folder structure (routes/, templates/, static/css/, static/js/)
+- [x] Implement database models in models.py (User and Expense tables)
+- [x] Implement authentication routes in routes/auth.py (register, login, logout)
+- [x] Implement expense routes in routes/expenses.py (add, view, update, delete expenses)
+- [x] Create main app.py (Flask setup, blueprints, database init)
+- [x] Create base.html template (layout with navigation)
+- [x] Create register.html template
+- [x] Create login.html template
+- [x] Create dashboard.html template (summary and chart placeholders)
+- [x] Create add_expense.html template
+- [x] Create edit_expense.html template
+- [x] Create view_expenses.html template
+- [x] Create static/css/style.css (clean, responsive styles)
+- [x] Create static/js/chart.js (Chart.js integration for dashboard charts)
+- [x] Add database initialization function/script
+- [x] Provide run instructions and dependency installation
+- [ ] Add CSV/Excel export/import dependencies (pandas, openpyxl)
+- [ ] Implement export route for CSV/Excel download
+- [ ] Implement import route for bulk expense upload
+- [ ] Update view_expenses.html with export/import UI
+- [ ] Update README.md with new features

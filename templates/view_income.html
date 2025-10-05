@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}View Income{% endblock %}
+
+{% block content %}
+<h2>Income List</h2>
+<a href="{{ url_for('expenses.add_income') }}">Add New Income</a>
+<table>
+    <thead>
+        <tr>
+            <th>Source</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Notes</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for income in incomes %}
+        <tr>
+            <td>{{ income.source }}</td>
+            <td>${{ "%.2f"|format(income.amount) }}</td>
+            <td>{{ income.date.strftime('%Y-%m-%d') }}</td>
+            <td>{{ income.notes }}</td>
+            <td>
+                <a href="{{ url_for('expenses.edit_income', id=income.id) }}">Edit</a>
+            </td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="5">No income records found.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
